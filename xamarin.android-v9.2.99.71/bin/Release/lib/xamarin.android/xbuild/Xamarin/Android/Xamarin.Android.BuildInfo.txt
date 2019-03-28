@@ -1,0 +1,15 @@
+# File format:
+#
+# One line per submodule, each with the following format:
+#
+#  LABEL: ORGANIZATION/REPOSITORY/BRANCH@COMMIT
+#
+# Lines starting with # are comments
+#
+Mono: mono/mono/2018-10@204d95cec15
+Java.Interop: xamarin/java.interop/master@f84c236
+LibZipSharp: grendello/LibZipSharp/master@44de300
+LibZip: nih-at/libzip/rel-1-5-1@b95cf3f
+ProGuard: xamarin/proguard/master@905836d
+SQLite: xamarin/sqlite/3.27.1@8212a2d
+Xamarin.Android Tools: xamarin/xamarin-android-tools/master@dc00a39

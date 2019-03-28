@@ -1,0 +1,28 @@
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+	<PropertyGroup Condition="'$(BaseIntermediateOutputPath)' == ''">
+		<BaseIntermediateOutputPath>obj</BaseIntermediateOutputPath>
+	</PropertyGroup>
+	<PropertyGroup>
+		<BaseIntermediateOutputPath Condition="!HasTrailingSlash('$(BaseIntermediateOutputPath)')">$(BaseIntermediateOutputPath)\</BaseIntermediateOutputPath>
+	</PropertyGroup>	
+	<PropertyGroup Condition=" $(IntermediateOutputPath) == '' ">
+		<IntermediateOutputPath>$(BaseIntermediateOutputPath)$(Configuration)\</IntermediateOutputPath>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(AndroidUseLatestPlatformSdk)' != 'true'">
+		<!-- Only change IntermediateOutputPath on Windows by default to avoid backward compatibility issues -->
+		<AppendTargetFrameworkToIntermediateOutputPath Condition=" '$(AppendTargetFrameworkToIntermediateOutputPath)' == '' And '$(OS)' == 'Windows_NT' ">True</AppendTargetFrameworkToIntermediateOutputPath>
+		<AppendTargetFrameworkToIntermediateOutputPath Condition=" '$(AppendTargetFrameworkToIntermediateOutputPath)' == '' And '$(OS)' != 'Windows_NT' ">False</AppendTargetFrameworkToIntermediateOutputPath>
+		<AppendTargetFrameworkToIntermediateOutputPath Condition="'$(AppendTargetFrameworkToIntermediateOutputPath)' == ''">False</AppendTargetFrameworkToIntermediateOutputPath>
+		<!-- We don't change the OutputPath by default to avoid backward compatibility issues -->
+		<AppendTargetFrameworkToOutputPath Condition="'$(AppendTargetFrameworkToOutputPath)' == ''">false</AppendTargetFrameworkToOutputPath>
+		<TargetFrameworkToOutputPath>$(TargetFrameworkVersion.TrimStart('v').Replace('.', ''))</TargetFrameworkToOutputPath>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(AppendTargetFrameworkToIntermediateOutputPath)' == 'true'">
+		<IntermediateOutputPath Condition="'$(IntermediateOutputPath)' != '' and !HasTrailingSlash('$(IntermediateOutputPath)')">$(IntermediateOutputPath)\</IntermediateOutputPath>
+		<IntermediateOutputPath>$(IntermediateOutputPath)$(TargetFrameworkToOutputPath)</IntermediateOutputPath>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(AppendTargetFrameworkToOutputPath)' == 'true'">
+		<OutputPath Condition="'$(OutputPath)' != '' and !HasTrailingSlash('$(OutputPath)')">$(OutputPath)\</OutputPath>
+		<OutputPath>$(OutputPath)$(TargetFrameworkToOutputPath)</OutputPath>
+	</PropertyGroup>
+</Project>

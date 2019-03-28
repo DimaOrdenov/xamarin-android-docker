@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Mono.Terminal</name>
+    </assembly>
+    <members>
+        <member name="F:Mono.Terminal.LineEditor.AutoCompleteEvent">
+            <summary>
+            Invoked when the user requests auto-completion using the tab character
+            </summary>
+            <remarks>
+            The result is null for no values found, an array with a single
+            string, in that case the string should be the text to be inserted
+            for example if the word at pos is "T", the result for a completion
+            of "ToString" should be "oString", not "ToString".
+            When there are multiple results, the result should be the full
+            text
+            </remarks></member>
+    </members>
+</doc>

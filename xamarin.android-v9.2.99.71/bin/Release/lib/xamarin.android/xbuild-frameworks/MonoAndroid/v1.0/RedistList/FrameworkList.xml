@@ -1,0 +1,4 @@
+<FileList Redist="MonoAndroid" Name="Xamarin.Android Base Class Libraries">
+<File AssemblyName="System.Buffers"    Version="4.0.99.0" />
+<File AssemblyName="System.Memory"     Version="4.0.99.0" />
+</FileList>
