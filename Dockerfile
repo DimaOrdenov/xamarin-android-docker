@@ -41,5 +41,4 @@ RUN mkdir $ANDROID_HOME/licenses && \
 # Install Android tools
 RUN cd $ANDROID_HOME && \
     tools/bin/sdkmanager "build-tools;28.0.3" "ndk-bundle" "platform-tools" && \
-    tools/bin/sdkmanager "platforms;android-28" "add-ons;addon-google_apis-google-24" && \
-    tools/bin/sdkmanager "extras;google;google_play_services" "extras;android;m2repository" "extras;google;m2repository"
+    tools/bin/sdkmanager "platforms;android-28"
